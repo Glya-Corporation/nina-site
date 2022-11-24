@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import Data from '../data/data'
 import Loader from "./Loader";
+import PhotoCurrent from "./PhotoCurrent";
 
 const Galery = () => {
     const images = Data.images;
     const [photos, setPhotos] = useState([]);
     const [btnBackground, setBtnBackground] = useState('tradicional');
     const [showLoader, setShowLoader] = useState(true);
+    const [photoSelected, setPhotoSelected] = useState('');
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         changeCategory('tradicional');
@@ -30,15 +33,29 @@ const Galery = () => {
         setBtnBackground(category);
     };
 
+    const seePhoto = id => {
+        const showCardCurrent = images.find(img => img.id === id);
+        setPhotoSelected(showCardCurrent.url);
+        setIsVisible(true);
+    }
+
     return (
         <article className="galery-container">
+            {
+                isVisible && (
+                    <div>
+                        <button onClick={() => setIsVisible(false)} className="material-symbols-outlined btn-close-photo">close</button>
+                        <PhotoCurrent url={photoSelected}/>
+                    </div>
+                )
+            }
             <section className="section--galery-filters">
                 <h2>Galería</h2>
                 <div className="btn-categories">
-                    <button className={btnBackground === 'all' && 'category-selected'} onClick={() => changeCategory('all')}>Todas</button>
-                    <button className={btnBackground === 'tradicional' && 'category-selected'} onClick={() => changeCategory('tradicional')}>Tradicional</button>
-                    <button className={btnBackground === 'acrilico' && 'category-selected'} onClick={() => changeCategory('acrilico')}>Acrílicas</button>
-                    <button className={btnBackground === 'esmaltadoGel' && 'category-selected'} onClick={() => changeCategory('esmaltadoGel')}>Esmaltado en Gel</button>
+                    <button className={btnBackground === 'all' ? 'category-selected' : ''} onClick={() => changeCategory('all')}>Todas</button>
+                    <button className={btnBackground === 'tradicional' ? 'category-selected' : ''} onClick={() => changeCategory('tradicional')}>Tradicional</button>
+                    <button className={btnBackground === 'acrilico' ? 'category-selected' : ''} onClick={() => changeCategory('acrilico')}>Acrílicas</button>
+                    <button className={btnBackground === 'esmaltadoGel' ? 'category-selected' : ''} onClick={() => changeCategory('esmaltadoGel')}>Esmaltado en Gel</button>
                 </div>
             </section>
             {
@@ -48,6 +65,7 @@ const Galery = () => {
                             photos.map(photo => (
                                 <div key={photo.id} id={photo.id} className="cards">
                                     <img className="photo-nails" src={photo.url} alt="photo nail" />
+                                    <button className="btn-ver" onClick={() => seePhoto(photo.id)}>Ver</button>
                                 </div>
                             ))
                         }

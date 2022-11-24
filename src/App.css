@@ -179,11 +179,54 @@ li {
     justify-content: center;
     align-items: center;
     margin: auto;
+    position: relative;
 }
 
 .photo-nails {
     width: 90%;
     height: 90%;
     object-fit: cover;
+    border-radius: 1rem;
+}
+
+.btn-ver {
+    position: absolute;
+    bottom: 1.5rem;
+    padding: 0 2rem;
+    border: transparent;
+    border-radius: 1rem;
+    background-color: #00000060;
+    box-shadow: 0 0 10px #00000090;
+    color: #fff;
+    font-size: 18px;
+}
+
+.btn-close-photo {
+    position: fixed;
+    background-color: transparent;
+    border: transparent;
+    top: 4rem;
+    right: 1rem;
+    color: #fff;
+    font-size: 45px;
+    z-index: 900;
+}
+
+.photoCurrent {
+    top: 3rem;
+    left: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 800;
+    background-color: #00000080;
+}
+
+.photoCurrent>img {
+    width: 320px;
+    height: 420px;
     border-radius: 1rem;
 }
