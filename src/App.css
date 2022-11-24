@@ -85,8 +85,8 @@ li {
     left: 0;
     background-image: url('https://github.com/Glya-Corporation/galery-n/blob/main/64.jpg?raw=true');
     background-attachment: fixed;
-    background-size: contain;
-    background-position: bottom;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
