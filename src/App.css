@@ -204,10 +204,11 @@ li {
 .btn-close-photo {
     position: fixed;
     background-color: transparent;
-    border: transparent;
+    border: .5px solid #f68;
+    border-radius: 50%;
     bottom: 1.5rem;
     right: 1.5rem;
-    color: #fff;
+    color: #f68;
     font-size: 45px;
     z-index: 900;
 }
@@ -222,7 +223,7 @@ li {
     width: 100vw;
     height: 100vh;
     z-index: 800;
-    background-color: #00000099;
+    background-color: #fff;
 }
 
 .photoCurrent>img {
@@ -230,4 +231,5 @@ li {
     height: 420px;
     object-fit: cover;
     border-radius: 1rem;
+    box-shadow: 0 0 20px #000;
 }
