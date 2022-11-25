@@ -7,7 +7,7 @@ const Home = () => {
     const profile = Data.profile;
 
     return (
-        <article className="home">
+        <article className="home" id="home">
             <section className="photo-background">
                 <div className="photo-background bakground-f"></div>
                 <Carousel fade controls={false} indicators={false}>

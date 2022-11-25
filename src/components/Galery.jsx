@@ -40,7 +40,7 @@ const Galery = () => {
     }
 
     return (
-        <article className="galery-container">
+        <article className="galery-container" id="galery">
             <section className="section--galery-filters">
                 <h2>Galería</h2>
                 <div className="btn-categories">

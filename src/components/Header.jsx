@@ -8,9 +8,9 @@ const Header = () => {
             <nav className="nav">
                 <button onClick={() => setShow(!show)} className="material-symbols-outlined btn-menu">menu</button>
                 <ul className={`nav-list ${ show && 'show'}`}>
-                    <li className="nav-item">Inicio</li>
-                    <li className="nav-item">Galería</li>
-                    <li className="nav-item">Contacto</li>
+                    <li className="nav-item"><a onClick={() => setShow(!show)} href="#home">Inicio</a></li>
+                    <li className="nav-item"><a onClick={() => setShow(!show)} href="#galery">Galería</a></li>
+                    <li className="nav-item"><a onClick={() => setShow(!show)} href="#contact">Contácto</a></li>
                 </ul>
             </nav>
         </header>
