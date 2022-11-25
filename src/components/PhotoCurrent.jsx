@@ -1,8 +1,7 @@
-const PhotoCurrent = ({ url }) => {
+const PhotoCurrent = ({ url, classAdd }) => {
+    
     return (
-        <div className="photoCurrent">
-            <img src={url} alt="Photo selected" />
-        </div>
+        <div></div>
     );
 }
 

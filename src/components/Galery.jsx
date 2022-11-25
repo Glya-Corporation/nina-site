@@ -41,14 +41,6 @@ const Galery = () => {
 
     return (
         <article className="galery-container">
-            {
-                isVisible && (
-                    <div>
-                        <button onClick={() => setIsVisible(false)} className="material-symbols-outlined btn-close-photo">close</button>
-                        <PhotoCurrent url={photoSelected}/>
-                    </div>
-                )
-            }
             <section className="section--galery-filters">
                 <h2>Galería</h2>
                 <div className="btn-categories">
@@ -72,6 +64,12 @@ const Galery = () => {
                     </section>
                 )
             }
+            <div className={`photoCurrent ${isVisible && 'animations'}`}>
+                <div className="container-photo-current">
+                    <img src={photoSelected} alt="Photo selected" />
+                    <button onClick={() => setIsVisible(false)} className="material-symbols-outlined btn-close-photo">close</button>
+                </div>
+            </div>
         </article>
     );
 }
