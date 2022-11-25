@@ -23,8 +23,8 @@ const Home = () => {
 
                 </Carousel>
                 <div className="img-networks">
-                    <img src={logoI} alt="networks" />
-                    <img src={logoF} alt="networks" />
+                    <a target="_blank" href="https://www.instagram.com/ninaabozo/"><img src={logoI} alt="networks" /></a>
+                    <a target="_blank" href=""><img src={logoF} alt="networks" /></a>
                 </div>
             </section>
             <section className="home-description">

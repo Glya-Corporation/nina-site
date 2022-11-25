@@ -137,7 +137,7 @@ li {
     gap: 1rem;
 }
 
-.img-networks>img {
+.img-networks a img {
     width: 50px;
     height: 50px;
 }
@@ -152,6 +152,7 @@ li {
 .galery-container {
     position: relative;
     background-color: var(--first-color-10);
+    padding-bottom: 3rem;
 }
 
 .section--galery-filters {
@@ -258,4 +259,36 @@ li {
     color: var(--second-color);
     font-size: 45px;
     z-index: 900;
+}
+
+/* ---------------------Contact---------------------- */
+
+.container-contact {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-contact h3 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.container-contact hr {
+    margin-top: 0;
+    width: 150px;
+    border: 1px solid var(--first-color);
+}
+
+.logo-w {
+    margin-top: 2rem;
+    width: 50px;
+    height: 50px;
+}
+
+.container-contact a {
+    text-decoration: none;
+    color: var(--black);
 }
