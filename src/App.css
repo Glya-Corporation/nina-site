@@ -153,6 +153,7 @@ li {
     position: relative;
     background-color: var(--first-color-10);
     padding-bottom: 3rem;
+    border-radius: 1rem;
 }
 
 .section--galery-filters {
@@ -215,6 +216,7 @@ li {
     font-size: 18px;
 }
 
+/* ---------------------Show photo current---------------------- */
 
 .photoCurrent {
     top: 0;
@@ -226,7 +228,10 @@ li {
     width: 100vw;
     height: 100vh;
     z-index: 800;
-    background-color: var(--white);
+    background-image: url("./assets/bps.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     transition: trandform .5s linear, opacity 1s ease-in-out;
     transform: translateX(-100vw);
     opacity: 0;
@@ -241,7 +246,7 @@ li {
     height: 420px;
     object-fit: cover;
     border-radius: 1rem;
-    box-shadow: 0 0 20px var(--box-shadow);
+    box-shadow: 0 0 50px var(--box-shadow);
 }
 
 .animations {
