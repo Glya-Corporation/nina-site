@@ -92,10 +92,10 @@ li {
     position: absolute;
     top: 3rem;
     left: 0;
-    background-image: url('https://github.com/Glya-Corporation/galery-n/blob/main/64.jpg?raw=true');
+    background-image: url('https://github.com/Glya-Corporation/galery-n/blob/main/14.jpg?raw=true');
     background-attachment: fixed;
     background-size: cover;
-    background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
