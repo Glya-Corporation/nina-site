@@ -11,6 +11,7 @@ const Header = () => {
                     <li className="nav-item"><a onClick={() => setShow(!show)} href="#home">Inicio</a></li>
                     <li className="nav-item"><a onClick={() => setShow(!show)} href="#galery">Galería</a></li>
                     <li className="nav-item"><a onClick={() => setShow(!show)} href="#contact">Contácto</a></li>
+                    <li className="nav-item"><a onClick={() => setShow(!show)} href="#home">Administración</a></li>
                 </ul>
             </nav>
         </header>

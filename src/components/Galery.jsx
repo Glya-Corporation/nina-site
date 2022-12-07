@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import Data from '../data/data'
 import Loader from "./Loader";
@@ -13,6 +14,7 @@ const Galery = () => {
 
     useEffect(() => {
         changeCategory('tradicional');
+        getProducts();
     }, [images]);
 
     const changeCategory = category => {
@@ -37,6 +39,31 @@ const Galery = () => {
         const showCardCurrent = images.find(img => img.id === id);
         setPhotoSelected(showCardCurrent.url);
         setIsVisible(true);
+    }
+
+    const getProducts = () => {
+        axios.get('https://ninadb-production.up.railway.app/api/v1/products?offset=0&limit=1000')
+            .then(data => setPhotos(data.data));
+    }
+
+    const addProducts = id => {
+        const product = images.find(img => img.id === id);
+
+        product.name = `${product.id}`
+        delete product.id;
+
+        axios.post('https://ninadb-production.up.railway.app/api/v1/products', product)
+            .then(data => console.log(data.data))
+            .catch(error => console.log(error))
+    }
+
+    const deleteProducts = photoCurrent => {
+        /* photoCurrent.forEach(product => {
+            axios.delete(`https://ninadb-production.up.railway.app/api/v1/products/${product.id}`)
+                .then(data => console.log(data))
+                .catch(error => console.log(error))
+                .finally(() => getProducts())
+        }); */
     }
 
     return (
