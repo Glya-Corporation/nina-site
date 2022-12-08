@@ -15,6 +15,7 @@ const Galery = () => {
     }, []);
 
     const changeCategory = category => {
+        getProducts();
         setShowLoader(true);
 
         if (category === 'all') {
