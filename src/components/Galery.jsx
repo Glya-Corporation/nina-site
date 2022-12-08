@@ -1,11 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Data from '../data/data'
 import Loader from "./Loader";
-import PhotoCurrent from "./PhotoCurrent";
 
 const Galery = () => {
-    const images = Data.images;
     const [photos, setPhotos] = useState([]);
     const [btnBackground, setBtnBackground] = useState('tradicional');
     const [showLoader, setShowLoader] = useState(true);
@@ -15,18 +12,18 @@ const Galery = () => {
     useEffect(() => {
         changeCategory('tradicional');
         getProducts();
-    }, [images]);
+    }, []);
 
     const changeCategory = category => {
         setShowLoader(true);
 
         if (category === 'all') {
-            setPhotos(images)
+            getProducts()
             setTimeout(() => {
                 setShowLoader(false)
             }, 4000);
         } else {
-            const filteredPhotos = images.filter(img => img.category === category);
+            const filteredPhotos = photos.filter(img => img.category === category);
             setPhotos(filteredPhotos);
             setTimeout(() => {
                 setShowLoader(false)
@@ -36,8 +33,8 @@ const Galery = () => {
     };
 
     const seePhoto = id => {
-        const showCardCurrent = images.find(img => img.id === id);
-        setPhotoSelected(showCardCurrent.url);
+        const showCardCurrent = photos.find(img => img.id === id);
+        setPhotoSelected(showCardCurrent);
         setIsVisible(true);
     }
 
@@ -46,7 +43,7 @@ const Galery = () => {
             .then(data => setPhotos(data.data));
     }
 
-    const addProducts = id => {
+   /*  const addProducts = id => {
         const product = images.find(img => img.id === id);
 
         product.name = `${product.id}`
@@ -55,15 +52,28 @@ const Galery = () => {
         axios.post('https://ninadb-production.up.railway.app/api/v1/products', product)
             .then(data => console.log(data.data))
             .catch(error => console.log(error))
-    }
+    } */
 
-    const deleteProducts = photoCurrent => {
-        /* photoCurrent.forEach(product => {
+    /* const deleteProducts = photoCurrent => {
+        photoCurrent.forEach(product => {
             axios.delete(`https://ninadb-production.up.railway.app/api/v1/products/${product.id}`)
                 .then(data => console.log(data))
                 .catch(error => console.log(error))
                 .finally(() => getProducts())
-        }); */
+        }); 
+    } */
+
+    const updateCategpry = (id, e) => {
+        axios.put(`https://ninadb-production.up.railway.app/api/v1/products/${id}`, {category: e})
+            .then(data => console.log(data))
+            .then(() => alert(`Has cambiado la categoria ahora es ${alerta(e)}`))
+            .catch(error => console.error(error))
+
+            const alerta = e => {
+                if (e === "tradicional") return "Tradicional"
+                if (e === "acrilico") return "Acrílico"
+                if (e === "esmaltadoGel") return "Esmaltado en Gel"
+            }
     }
 
     return (
@@ -93,7 +103,13 @@ const Galery = () => {
             }
             <div className={`photoCurrent ${isVisible && 'animations'}`}>
                 <div className="container-photo-current">
-                    <img src={photoSelected} alt="Photo selected" />
+                    <img src={photoSelected.url} alt="Photo selected" />
+                    <select defaultValue="seleccionar" className="select" onChange={e => updateCategpry(photoSelected.id, e.target.value)}>
+                        <option value="seleccionar" disabled>Seleccionar...</option>
+                        <option value="tradicional">Tradicional</option>
+                        <option value="acrilico">Acrílico</option>
+                        <option value="esmaltadoGel">Esmaltado en Gel</option>
+                    </select>
                     <button onClick={() => setIsVisible(false)} className="material-symbols-outlined btn-close-photo">close</button>
                 </div>
             </div>

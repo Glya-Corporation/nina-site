@@ -242,6 +242,14 @@ li {
     font-size: 18px;
 }
 
+.select {
+    position: absolute;
+    top: 15px;
+    left: 25%;
+    padding: .2rem;
+    outline: none;
+}
+
 /* ---------------------Show photo current---------------------- */
 
 .photoCurrent {
