@@ -1,7 +1,7 @@
-import { Carousel } from "react-bootstrap";
-import Data from "../data/data"
+import { Carousel } from "react-bootstrap"
 import logoI from "../assets/logo-i.png"
 import logoF from "../assets/logo-f.png"
+import Data from "../data/data"
 
 const Home = () => {
     const profile = Data.profile;
